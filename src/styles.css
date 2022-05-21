@@ -49,13 +49,12 @@ div.sidebar * {
 /* checklist styles */
 
 #checklist {
-  /* --background: #ffffff; */
   border: 1px solid lightgray;
   --text: #414856;
   --check: #4f29f0;
   --disabled: #c3c8de;
+  --height: 50px;
   /* --width: 100px; */
-  --height: 40px;
   --border-radius: 10px;
   background: var(--background);
   width: var(--width);
@@ -65,9 +64,14 @@ div.sidebar * {
   box-shadow: 0 10px 30px rgba(65, 72, 86, 0.05);
   padding: 10px 45px;
   display: grid;
-  grid-template-columns: 30px auto;
+  grid-template-columns: 30px 75% 20%;
   align-items: center;
   margin: 4px;
+}
+.edit {
+  grid-area: 1/3/2/4;
+  display: flex;
+  justify-content: flex-end;
 }
 #checklist label {
   color: var(--text);
