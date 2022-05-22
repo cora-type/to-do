@@ -2,6 +2,7 @@ import "./styles.css";
 
 import { initialize } from "./pageLoad";
 
-// document.addEventListener("DOMContentLoaded", function () {}
-
+let todoList;
 initialize(document.body);
+
+// document.addEventListener("DOMContentLoaded", function () {}

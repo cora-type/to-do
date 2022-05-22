@@ -4,7 +4,6 @@ class toDo {
     this.description = description;
     this.dueDate = dueDate;
     this.priority = priority;
-    this.notes = notes;
     this.checklist = checklist;
   }
 }
