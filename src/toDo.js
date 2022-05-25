@@ -1,18 +1,18 @@
 class toDo {
-  constructor(title, description, dueDate, priority, notes, status) {
-    this.title = title;
-    this.description = description;
-    this.dueDate = dueDate;
-    this.priority = priority;
-    this.notes = notes;
-    this.status = status;
+  constructor(form) {
+    this.title = form.title.value;
+    this.description = form.description.value;
+    this.dueDate = form.date.value;
+    this.priority = form.priority.value;
+    this.notes = form.notes.value;
+    this.status = false;
   }
 
   set changeTitle(value) {
     this.title = value;
   }
   set changeDescription(value) {
-    this.description = value;
+    // this.description = value;
   }
   set changeDueDate(value) {
     this.dueDate = value;

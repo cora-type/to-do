@@ -1,7 +1,7 @@
 import "./styles.css";
 
 import { initialize } from "./pageLoad";
-import { create } from "./create";
+import { toDo } from "./toDo";
 
 // let todoList = {
 //   unsorted: "",
@@ -9,12 +9,17 @@ import { create } from "./create";
 initialize(document.body);
 
 let addBtn = document.querySelector(".add");
+let form = document.getElementById("form");
 
 addBtn.addEventListener("click", function () {
-  let form = document.querySelector(".form-container");
   form.style.visibility == "hidden"
     ? (form.style.visibility = "visible")
     : (form.style.visibility = "hidden");
 });
 
+form.addEventListener("submit", function (e) {
+  e.preventDefault();
+  let r = new toDo(this);
+  console.log(r);
+});
 // document.addEventListener("DOMContentLoaded", function () {}

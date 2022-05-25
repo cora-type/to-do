@@ -60,33 +60,39 @@ let tasks = (container) => {
   tasklist.appendChild(button);
   container.appendChild(tasklist);
 };
+
 //Create form to add to-do items
 let taskMaker = (container) => {
   let formContainer = document.createElement("div");
   formContainer.classList.add("form-container");
+  formContainer.style.visibility = "hidden";
 
   let form = document.createElement("form");
+  form.id = "form";
 
   let form__group = document.createElement("div");
   form__group.classList.add("form__group");
 
   let titleInput = document.createElement("input");
-  titleInput.classList.add("form__input", "title");
+  titleInput.classList.add("form__input");
   Object.assign(titleInput, {
     type: "text",
     placeholder: "title",
+    id: "title",
+    required: " ",
   });
 
   let descriptionInput = document.createElement("input");
-
-  descriptionInput.classList.add("form__input", "description");
+  descriptionInput.classList.add("form__input");
   Object.assign(descriptionInput, {
     type: "text",
     placeholder: "description",
+    id: "description",
   });
 
   let notesInput = document.createElement("textarea");
   Object.assign(notesInput, {
+    id: "notes",
     name: "notes",
     cols: "40",
     rows: "3",
@@ -94,7 +100,7 @@ let taskMaker = (container) => {
   });
 
   let selectInput = document.createElement("select");
-  selectInput.classList.add("priority");
+  selectInput.id = "priority";
   selectInput.setAttribute("name", "priority");
   selectInput.options[selectInput.options.length] = new Option(
     "life or death",
@@ -115,11 +121,19 @@ let taskMaker = (container) => {
     type: "date",
     name: "date",
     id: "date",
-    value: "2022-01-01",
-    min: "2022-01-01",
   });
 
-  form__group.append(titleInput, descriptionInput, notesInput, selectInput, dateInput);
+  let btn = document.createElement("button");
+  btn.innerText = "create";
+
+  form__group.append(
+    titleInput,
+    descriptionInput,
+    notesInput,
+    selectInput,
+    dateInput,
+    btn
+  );
   form.appendChild(form__group);
   formContainer.appendChild(form);
   container.appendChild(formContainer);
