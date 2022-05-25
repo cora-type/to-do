@@ -24,17 +24,19 @@ class toDo {
     this.notes = value;
   }
 }
+//
+// let example = new toDo(
+//   "Take out the trash",
+//   "Need to take out the trash so I get paid",
+//   "12/01/2022",
+//   "all nighter",
+//   "do it quick, do it at night, just do it",
+//   "uncomplete"
+// );
+//
+// example.changeTitle = "Don't walk the dog";
+// example.changeDueDate = "12/1/1";
+//
+// console.log(example);
 
-let example = new toDo(
-  "Take out the trash",
-  "Need to take out the trash so I get paid",
-  "12/01/2022",
-  "all nighter",
-  "do it quick, do it at night, just do it",
-  "uncomplete"
-);
-
-example.changeTitle = "Don't walk the dog";
-example.changeDueDate = "12/1/1";
-
-console.log(example);
+export { toDo };

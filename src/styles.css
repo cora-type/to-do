@@ -61,6 +61,7 @@ div.sidebar * {
   display: flex;
   align-items: center;
   justify-content: center;
+  visibility: hidden;
 }
 
 textarea {
@@ -69,9 +70,6 @@ textarea {
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #999;
-}
-.hide {
-  visibility: hidden;
 }
 
 /* button styling */
