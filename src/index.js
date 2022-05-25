@@ -20,6 +20,7 @@ addBtn.addEventListener("click", function () {
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   let r = new toDo(this);
+  r.changeDescription = "yeah";
   console.log(r);
 });
 // document.addEventListener("DOMContentLoaded", function () {}

@@ -65,10 +65,10 @@ let tasks = (container) => {
 let taskMaker = (container) => {
   let formContainer = document.createElement("div");
   formContainer.classList.add("form-container");
-  formContainer.style.visibility = "hidden";
 
   let form = document.createElement("form");
   form.id = "form";
+  form.style.visibility = "hidden";
 
   let form__group = document.createElement("div");
   form__group.classList.add("form__group");

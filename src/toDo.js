@@ -8,11 +8,13 @@ class toDo {
     this.status = false;
   }
 
+  todoList = {};
+
   set changeTitle(value) {
     this.title = value;
   }
   set changeDescription(value) {
-    // this.description = value;
+    this.description = value;
   }
   set changeDueDate(value) {
     this.dueDate = value;
