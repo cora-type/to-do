@@ -66,7 +66,6 @@ let taskMaker = (container) => {
   formContainer.classList.add("form-container");
 
   let form = document.createElement("form");
-  form.classList.add("form");
 
   let form__group = document.createElement("div");
   form__group.classList.add("form__group");

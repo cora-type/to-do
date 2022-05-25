@@ -70,6 +70,9 @@ textarea {
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #999;
 }
+.hide {
+  visibility: hidden;
+}
 
 /* button styling */
 
