@@ -29,19 +29,16 @@ let headers = (container) => {
 let sidebars = (container) => {
   let sidebar = document.createElement("div");
   let sidebarAll = document.createElement("div");
-  let sidebarProjects = document.createElement("div");
   let sidebarUnsorted = document.createElement("div");
 
   sidebar.classList.add("sidebar");
   sidebarAll.classList.add("sidebar", "sidebar-all");
-  sidebarProjects.classList.add("sidebar", "sidebar-projects");
   sidebarUnsorted.classList.add("sidebar", "sidebar-unsorted");
 
-  sidebarProjects.innerText = "projects";
   sidebarAll.innerText = "all tasks";
   sidebarUnsorted.innerText = "unsorted";
 
-  sidebar.append(sidebarAll, sidebarProjects, sidebarUnsorted);
+  sidebar.append(sidebarAll, sidebarUnsorted);
   container.appendChild(sidebar);
 };
 
@@ -128,7 +125,7 @@ let taskMaker = (container) => {
   });
 
   let btn = document.createElement("button");
-  btn.innerText = "create";
+  btn.innerText = "create task";
 
   form__group.append(
     titleInput,

@@ -5,7 +5,7 @@ import { toDo } from "./toDo";
 
 initialize(document.body);
 
-let list = [{ unsorted: "" }];
+let todos = [];
 
 let addBtn = document.querySelector(".add");
 let form = document.getElementById("form");
@@ -18,7 +18,8 @@ addBtn.addEventListener("click", function () {
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  list["unsorted"] += new toDo(this);
-  console.log();
+  let r = new toDo(form);
+  todos.push(r);
+  console.log(todos);
 });
 // document.addEventListener("DOMContentLoaded", function () {}
