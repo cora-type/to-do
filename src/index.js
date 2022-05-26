@@ -3,10 +3,9 @@ import "./styles.css";
 import { initialize } from "./pageLoad";
 import { toDo } from "./toDo";
 
-// let todoList = {
-//   unsorted: "",
-// };
 initialize(document.body);
+
+let list = [{ unsorted: "" }];
 
 let addBtn = document.querySelector(".add");
 let form = document.getElementById("form");
@@ -19,8 +18,7 @@ addBtn.addEventListener("click", function () {
 
 form.addEventListener("submit", function (e) {
   e.preventDefault();
-  let r = new toDo(this);
-  r.changeDescription = "yeah";
-  console.log(r);
+  list["unsorted"] += new toDo(this);
+  console.log();
 });
 // document.addEventListener("DOMContentLoaded", function () {}

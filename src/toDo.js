@@ -2,7 +2,7 @@ class toDo {
   constructor(form) {
     this.title = form.title.value;
     this.description = form.description.value;
-    this.dueDate = form.date.value;
+    this.date = form.date.value;
     this.priority = form.priority.value;
     this.notes = form.notes.value;
     this.status = false;
@@ -16,8 +16,8 @@ class toDo {
   set changeDescription(value) {
     this.description = value;
   }
-  set changeDueDate(value) {
-    this.dueDate = value;
+  set changeDate(value) {
+    this.date = value;
   }
   set changePriority(value) {
     this.priority = value;

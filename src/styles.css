@@ -242,7 +242,7 @@ textarea {
   --disabled: #c3c8de;
   --height: 50px;
   /* --width: 100px; */
-  --border-radius: 10px;
+  --border-radius: 0.25rem;
   background: var(--background);
   width: var(--width);
   height: var(--height);
@@ -253,7 +253,7 @@ textarea {
   display: grid;
   grid-template-columns: 30px 75% 20%;
   align-items: center;
-  margin: 4px;
+  margin-top: 4px;
 }
 
 .task label {

@@ -1,4 +1,5 @@
 import edit from "./edit.svg";
+import { createTask } from "./createTask";
 
 let initialize = (container) => {
   headers(container);
@@ -58,6 +59,7 @@ let tasks = (container) => {
 
   button.appendChild(addButton);
   tasklist.appendChild(button);
+  createTask(tasklist);
   container.appendChild(tasklist);
 };
 
@@ -75,12 +77,14 @@ let taskMaker = (container) => {
 
   let titleInput = document.createElement("input");
   titleInput.classList.add("form__input");
-  Object.assign(titleInput, {
-    type: "text",
-    placeholder: "title",
-    id: "title",
-    required: " ",
-  });
+  {
+    Object.assign(titleInput, {
+      type: "text",
+      placeholder: "title",
+      id: "title",
+      required: " ",
+    });
+  }
 
   let descriptionInput = document.createElement("input");
   descriptionInput.classList.add("form__input");
