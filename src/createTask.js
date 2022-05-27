@@ -30,7 +30,7 @@ let createTask = (container) => {
 
   let taskTime = document.createElement("div");
   taskTime.classList.add("task-time");
-  taskTime.innerText = "2days";
+  taskTime.innerText = "2 days";
   taskInfo.appendChild(taskTime);
 
   container.appendChild(task);

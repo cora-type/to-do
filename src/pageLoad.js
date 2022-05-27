@@ -28,18 +28,30 @@ let headers = (container) => {
 //Create sidebar.
 let sidebars = (container) => {
   let sidebar = document.createElement("div");
-  let sidebarAll = document.createElement("div");
-  let sidebarUnsorted = document.createElement("div");
+  let sidebarAll = document.createElement("button");
+  let sidebarUnsorted = document.createElement("button");
 
   sidebar.classList.add("sidebar");
-  sidebarAll.classList.add("sidebar", "sidebar-all");
-  sidebarUnsorted.classList.add("sidebar", "sidebar-unsorted");
+  sidebarAll.classList.add("link", "link--ersa");
+  sidebarUnsorted.classList.add("link", "link--ersa");
+
+  sidebarAll.id = "all";
+  sidebarUnsorted.id = "unsorted";
 
   sidebarAll.innerText = "all tasks";
   sidebarUnsorted.innerText = "unsorted";
 
   sidebar.append(sidebarAll, sidebarUnsorted);
   container.appendChild(sidebar);
+
+  let breakLine = document.createElement("hr");
+  breakLine.setAttribute("style", "width:50%;text-align:left;margin-left:0");
+  sidebar.appendChild(breakLine);
+
+  let createProjectBtn = document.createElement("button");
+  createProjectBtn.classList.add("create-project-btn");
+  createProjectBtn.innerText = " create project";
+  sidebar.appendChild(createProjectBtn);
 };
 
 //Create task container.
