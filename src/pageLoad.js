@@ -63,7 +63,7 @@ let tasks = (container) => {
 
   tasklist.classList.add("task-list");
   btn.classList.add("button");
-  addBtn.classList.add("add");
+  addBtn.classList.add("task-form-btn");
 
   addBtn.innerText = "+";
 
@@ -162,22 +162,27 @@ let taskForm = (container) => {
 let projectForm = (container) => {
   let projectFormModal = document.createElement("div");
   projectFormModal.classList.add("project-form-modal");
+  projectFormModal.setAttribute("style", "visibility: hidden;");
 
   let form = document.createElement("form");
   form.id = "project-form";
 
-  let createLabel = document.createElement("label");
-  createLabel.setAttribute("for", "project-name");
-  createLabel.setAttribute("style", "width: 100%");
-  createLabel.innerText = "project name";
+  let label = document.createElement("label");
+  label.setAttribute("for", "project-name");
+  // label.setAttribute("style", "width: 100%");
+  label.innerText = "project name";
 
-  let createInput = document.createElement("input");
-  createInput.classList.add("project-namet");
-  createInput.setAttribute("type", "text");
-  createInput.setAttribute("name", "project-name");
+  let input = document.createElement("input");
+  input.classList.add("project-name");
+  input.setAttribute("type", "text");
+  input.setAttribute("name", "project-name");
+
+  let btn = document.createElement("button");
+  btn.classList.add("project-form-btn");
+  btn.innerText = "add";
 
   container.appendChild(projectFormModal);
   projectFormModal.appendChild(form);
-  form.append(createLabel, createInput);
+  form.append(label, input, btn);
 };
 export { initialize };

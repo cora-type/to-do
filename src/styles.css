@@ -7,19 +7,6 @@
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
-.project-form-modal {
-  grid-area: 2/2/4/3;
-  display: none;
-  align-self: center;
-  position: relative;
-  z-index: 9999;
-}
-
-#project-form {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 body {
   height: 100vh;
   display: grid;
@@ -69,6 +56,61 @@ textarea {
   border-radius: 5px;
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #999;
+}
+
+.project-form-modal {
+  grid-area: 2/2/4/3;
+  display: block;
+  align-self: center;
+  position: relative;
+  z-index: 9999;
+}
+
+#project-form {
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.project-name {
+  width: 400px;
+}
+
+/* add project btn styling */
+
+/* From uiverse.io by @kiru2741 */
+.project-form-btn {
+  padding: 10px;
+  font-size: 15px;
+  outline: none;
+  border: 2px solid black;
+  background-color: white;
+  color: white;
+  position: relative;
+  letter-spacing: 1px;
+  width: 100px;
+  cursor: pointer;
+}
+
+.project-form-btn::before {
+  content: "add";
+  /*Button's value/text-content */
+  position: absolute;
+  top: -14%;
+  left: 7%;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.15s ease-in-out;
+  font-weight: bold;
+}
+
+.project-form-btn:hover::before {
+  top: 0;
+  left: 0;
 }
 
 /* create-project-btn styling */
@@ -167,7 +209,7 @@ textarea {
 
 /* add button styling */
 
-.add {
+.task-form-btn {
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
