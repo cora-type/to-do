@@ -5,7 +5,8 @@ let initialize = (container) => {
   headers(container);
   sidebars(container);
   tasks(container);
-  taskMaker(container);
+  taskForm(container);
+  projectForm(container);
 };
 
 //Create header.
@@ -57,33 +58,34 @@ let sidebars = (container) => {
 //Create task container.
 let tasks = (container) => {
   let tasklist = document.createElement("div");
-  let button = document.createElement("div");
-  let addButton = document.createElement("button");
+  let btn = document.createElement("div");
+  let addBtn = document.createElement("button");
 
   tasklist.classList.add("task-list");
-  button.classList.add("button");
-  addButton.classList.add("add");
+  btn.classList.add("button");
+  addBtn.classList.add("add");
 
-  addButton.innerText = "+";
+  addBtn.innerText = "+";
 
-  button.appendChild(addButton);
-  tasklist.appendChild(button);
+  btn.appendChild(addBtn);
+  tasklist.appendChild(btn);
   createTask(tasklist);
   container.appendChild(tasklist);
 };
 
 //Create form to add to-do items
-let taskMaker = (container) => {
+let taskForm = (container) => {
   let formContainer = document.createElement("div");
   formContainer.classList.add("form-container");
 
   let form = document.createElement("form");
-  form.id = "form";
+  form.id = "task-form";
   form.style.visibility = "hidden";
 
   let form__group = document.createElement("div");
   form__group.classList.add("form__group");
 
+  // title input
   let titleInput = document.createElement("input");
   titleInput.classList.add("form__input");
   {
@@ -95,6 +97,7 @@ let taskMaker = (container) => {
     });
   }
 
+  // description input
   let descriptionInput = document.createElement("input");
   descriptionInput.classList.add("form__input");
   Object.assign(descriptionInput, {
@@ -102,6 +105,8 @@ let taskMaker = (container) => {
     placeholder: "description",
     id: "description",
   });
+
+  // notes textbox
 
   let notesInput = document.createElement("textarea");
   Object.assign(notesInput, {
@@ -112,6 +117,7 @@ let taskMaker = (container) => {
     placeholder: "notes",
   });
 
+  // priority dropdown
   let selectInput = document.createElement("select");
   selectInput.id = "priority";
   selectInput.setAttribute("name", "priority");
@@ -119,7 +125,6 @@ let taskMaker = (container) => {
     "life or death",
     "life or death"
   );
-
   selectInput.options[selectInput.options.length] = new Option(
     "it can wait",
     "it can wait"
@@ -129,6 +134,7 @@ let taskMaker = (container) => {
     "all nighter"
   );
 
+  // date input
   let dateInput = document.createElement("input");
   Object.assign(dateInput, {
     type: "date",
@@ -152,4 +158,26 @@ let taskMaker = (container) => {
   container.appendChild(formContainer);
 };
 
+//Create form to create projects
+let projectForm = (container) => {
+  let projectFormModal = document.createElement("div");
+  projectFormModal.classList.add("project-form-modal");
+
+  let form = document.createElement("form");
+  form.id = "project-form";
+
+  let createLabel = document.createElement("label");
+  createLabel.setAttribute("for", "project-name");
+  createLabel.setAttribute("style", "width: 100%");
+  createLabel.innerText = "project name";
+
+  let createInput = document.createElement("input");
+  createInput.classList.add("project-namet");
+  createInput.setAttribute("type", "text");
+  createInput.setAttribute("name", "project-name");
+
+  container.appendChild(projectFormModal);
+  projectFormModal.appendChild(form);
+  form.append(createLabel, createInput);
+};
 export { initialize };
