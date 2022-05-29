@@ -6,45 +6,57 @@ import { toDo } from "./toDo";
 
 initialize(document.body);
 
-let projectButtons = document.querySelectorAll(".link");
+let projects = document.querySelectorAll(".link");
+
 let createProjectBtn = document.querySelector(".create-project-btn");
-let taskFormBtn = document.querySelector(".task-form-btn");
+let projectForm = document.getElementById("p-form");
+
+let createTaskBtn = document.querySelector(".create-task-btn");
+let taskForm = document.getElementById("t-form");
 
 let taskList = document.querySelector(".task-list");
-let taskForm = document.getElementById("task-form");
-let projectForm = document.getElementById("project-form");
 
 let todos = [];
 
-taskFormBtn.addEventListener("click", function () {
-  visibility(taskForm);
-});
-
-createProjectBtn.addEventListener("click", function () {
-  visibility(projectForm);
+let blurTasks = () => {
   taskList.style.filter == ""
     ? (taskList.style.filter = "blur(1px)")
     : (taskList.style.filter = "");
+};
+
+//make task form visible
+createTaskBtn.addEventListener("click", function () {
+  visibility(taskForm);
+});
+//make project form visible
+createProjectBtn.addEventListener("click", function () {
+  visibility(projectForm);
+  blurTasks();
 });
 
+//form handlers
 projectForm.addEventListener("submit", function (e) {
   e.preventDefault();
-  console.log(projectForm.name);
+  todos.push(projectForm.projectname.value);
+  projectForm.projectname.value = "";
+  console.log(todos);
+  blurTasks();
+  visibility(e.target);
 });
-
 taskForm.addEventListener("submit", function (e) {
   e.preventDefault();
   let r = new toDo(taskForm);
-  todos.push(r);
-  console.log(todos);
+  console.log(r);
+  visibility(e.target);
 });
 
-projectButtons.forEach((result, id) => {
+projects.forEach((result, id) => {
   result.addEventListener("click", function () {
     //load tasks from object that matches with this name, add future tasks to this same object
   });
 });
 
+//helper function
 let visibility = (modal) => {
   modal.style.visibility == "hidden"
     ? (modal.style.visibility = "visible")

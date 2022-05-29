@@ -63,7 +63,7 @@ let tasks = (container) => {
 
   tasklist.classList.add("task-list");
   btn.classList.add("button");
-  addBtn.classList.add("task-form-btn");
+  addBtn.classList.add("create-task-btn");
 
   addBtn.innerText = "+";
 
@@ -79,7 +79,7 @@ let taskForm = (container) => {
   formContainer.classList.add("form-container");
 
   let form = document.createElement("form");
-  form.id = "task-form";
+  form.id = "t-form";
   form.style.visibility = "hidden";
 
   let form__group = document.createElement("div");
@@ -161,24 +161,24 @@ let taskForm = (container) => {
 //Create form to create projects
 let projectForm = (container) => {
   let projectFormModal = document.createElement("div");
-  projectFormModal.classList.add("project-form-modal");
-  projectFormModal.setAttribute("style", "visibility: hidden;");
+  projectFormModal.classList.add("p-form-modal");
 
   let form = document.createElement("form");
-  form.id = "project-form";
+  form.id = "p-form";
+  form.setAttribute("style", "visibility: hidden;");
 
   let label = document.createElement("label");
-  label.setAttribute("for", "project-name");
+  label.setAttribute("for", "projectname");
   // label.setAttribute("style", "width: 100%");
   label.innerText = "project name";
 
   let input = document.createElement("input");
-  input.classList.add("project-name");
+  input.classList.add("projectname");
   input.setAttribute("type", "text");
-  input.setAttribute("name", "project-name");
+  input.setAttribute("name", "projectname");
 
   let btn = document.createElement("button");
-  btn.classList.add("project-form-btn");
+  btn.classList.add("p-form-btn");
   btn.innerText = "add";
 
   container.appendChild(projectFormModal);

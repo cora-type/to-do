@@ -58,7 +58,7 @@ textarea {
   box-shadow: 1px 1px 1px #999;
 }
 
-.project-form-modal {
+.p-form-modal {
   grid-area: 2/2/4/3;
   display: block;
   align-self: center;
@@ -66,19 +66,19 @@ textarea {
   z-index: 9999;
 }
 
-#project-form {
+#p-form {
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
 }
 
-.project-name {
+.projectname {
   width: 400px;
 }
 
 /* add project btn styling */
 
 /* From uiverse.io by @kiru2741 */
-.project-form-btn {
+.p-form-btn {
   padding: 10px;
   font-size: 15px;
   outline: none;
@@ -91,7 +91,7 @@ textarea {
   cursor: pointer;
 }
 
-.project-form-btn::before {
+.p-form-btn::before {
   content: "add";
   /*Button's value/text-content */
   position: absolute;
@@ -108,7 +108,7 @@ textarea {
   font-weight: bold;
 }
 
-.project-form-btn:hover::before {
+.p-form-btn:hover::before {
   top: 0;
   left: 0;
 }
@@ -209,7 +209,7 @@ textarea {
 
 /* add button styling */
 
-.task-form-btn {
+.create-task-btn {
   background-color: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 0.25rem;
@@ -225,18 +225,18 @@ textarea {
   transition: all 250ms;
 }
 
-.add:hover,
-.add:focus {
+.create-task-btn:hover,
+.create-task-btn:focus {
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   color: rgba(0, 0, 0, 0.65);
 }
 
-.add:hover {
+.create-task-btn:hover {
   transform: translateY(-1px);
 }
 
-.add:active {
+.create-task-btn:active {
   background-color: #f0f0f1;
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
