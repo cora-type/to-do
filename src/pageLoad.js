@@ -34,7 +34,7 @@ let sidebars = (container) => {
 
   sidebar.classList.add("sidebar");
   sidebarAll.classList.add("link", "link--ersa");
-  sidebarUnsorted.classList.add("link", "link--ersa");
+  sidebarUnsorted.classList.add("link", "link--ersa", "active");
 
   sidebarAll.id = "all";
   sidebarUnsorted.id = "unsorted";

@@ -26,13 +26,7 @@ projectForm.addEventListener("submit", function (e) {
   blurTasks(taskDisplay);
   if (projectForm.projectname.value) {
     tasks[projectForm.projectname.value] = []; //create a project key
-    createProject(
-      sidebarContainer,
-      projectForm.projectname.value,
-      tasks,
-      taskDisplay,
-      currentProject
-    );
+    createProject(sidebarContainer, projectForm.projectname.value, tasks, taskDisplay);
   }
   projectForm.projectname.value = "";
   visibility(e.target);
@@ -40,9 +34,10 @@ projectForm.addEventListener("submit", function (e) {
 });
 
 taskForm.addEventListener("submit", function (e) {
+  let active = document.querySelector(".active");
   e.preventDefault();
-  let r = new toDo(taskForm);
-  tasks[currentProject].push(r);
+  let task = new toDo(taskForm);
+  tasks[active.id].push(task);
   displayUpdate(tasks, currentProject, taskDisplay);
   visibility(e.target);
 });
