@@ -35,7 +35,7 @@ body {
   font-size: 80px;
 }
 
-.task-list {
+.task-display {
   grid-area: 2/2/5/3;
   border: 10px;
 }
