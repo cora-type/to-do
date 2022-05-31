@@ -9,14 +9,14 @@ import { visibility, blurTasks, selector } from "./styleHelper";
 initialize(document.body);
 
 let tasks = { unsorted: [] };
-let currentProject = "unsorted";
 
-let sidebarContainer = document.querySelector(".sidebar");
 let createProjectBtn = document.querySelector(".create-project-btn");
 let projectForm = document.getElementById("p-form");
 let createTaskBtn = document.querySelector(".create-task-btn");
 let taskForm = document.getElementById("t-form");
 let taskDisplay = document.querySelector(".task-display");
+
+let sidebarContainer = document.querySelector(".sidebar");
 let unsorted = document.getElementById("unsorted");
 let allTasks = document.getElementById("all");
 
@@ -30,29 +30,34 @@ projectForm.addEventListener("submit", function (e) {
   }
   projectForm.projectname.value = "";
   visibility(e.target);
-  console.log(tasks);
 });
 
 taskForm.addEventListener("submit", function (e) {
-  let active = document.querySelector(".active");
+  let active = document.querySelector(".active"); //get currently active project
   e.preventDefault();
-  let task = new toDo(taskForm);
-  tasks[active.id].push(task);
-  displayUpdate(tasks, currentProject, taskDisplay);
+  let task = new toDo(taskForm); //create a new task from form
+  tasks[active.id].push(task); // get current project key from id, add to list
+  displayUpdate(tasks, active.id, taskDisplay);
   visibility(e.target);
+
+  console.log(tasks);
 });
 
 //load default project tasks
 unsorted.addEventListener("click", function () {
+  let active = document.querySelector(".active");
+  active.classList.remove("active");
+  this.classList.add("active");
   selector();
   this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
   displayUpdate(tasks, "unsorted", taskDisplay);
-  currentProject = "unsorted";
 });
 allTasks.addEventListener("click", function () {
+  let active = document.querySelector(".active");
+  active.classList.remove("active");
+  unsorted.classList.add("active");
   selector();
   this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
-
   Object.keys(tasks).forEach((key) => {
     displayUpdate(tasks, key, taskDisplay);
   });
