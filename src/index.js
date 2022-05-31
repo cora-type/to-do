@@ -48,6 +48,10 @@ unsorted.addEventListener("click", function () {
   let active = document.querySelector(".active");
   active.classList.remove("active");
   this.classList.add("active");
+  let j = document.querySelectorAll(".task");
+  j.forEach((task) => {
+    task.remove();
+  });
   selector();
   this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
   displayUpdate(tasks, "unsorted", taskDisplay);
@@ -56,6 +60,10 @@ allTasks.addEventListener("click", function () {
   let active = document.querySelector(".active");
   active.classList.remove("active");
   unsorted.classList.add("active");
+  let j = document.querySelectorAll(".task");
+  j.forEach((task) => {
+    task.remove();
+  });
   selector();
   this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
   Object.keys(tasks).forEach((key) => {
