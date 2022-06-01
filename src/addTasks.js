@@ -8,6 +8,7 @@ let addTasks = (x) => {
   tasks.forEach((task) => {
     task.remove();
   });
+  x.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
 };
 
 export { addTasks };

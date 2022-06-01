@@ -45,15 +45,13 @@ taskForm.addEventListener("submit", function (e) {
 
 //load default project tasks
 unsorted.addEventListener("click", function (event) {
-  addTasks(event.target);
   selector();
-  this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
+  addTasks(event.target);
   displayUpdate(tasks, "unsorted", taskDisplay);
 });
 allTasks.addEventListener("click", function () {
-  addTasks(unsorted);
   selector();
-  this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
+  addTasks(unsorted);
   Object.keys(tasks).forEach((key) => {
     displayUpdate(tasks, key, taskDisplay);
   });

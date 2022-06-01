@@ -11,9 +11,8 @@ let createProject = (sidebarContainer, name, list, taskContainer) => {
 
   //if project is clicked, highlight and update the list of tasks
   button.addEventListener("click", function (event) {
-    addTasks(event.target);
     selector();
-    this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
+    addTasks(event.target);
     displayUpdate(list, name, taskContainer);
   });
   sidebarContainer.appendChild(button);
