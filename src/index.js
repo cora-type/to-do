@@ -3,7 +3,7 @@ import "./styles.css";
 import { initialize } from "./pageLoad";
 import { toDo } from "./toDo";
 import { createProject } from "./createProject";
-import { displayUpdate } from "./displayUpdate";
+import { displayUpdate, displayUpdateAll } from "./displayUpdate";
 import { createTask } from "./createTask";
 import { visibility, blurTasks, selector } from "./styleHelper";
 import { addTasks } from "./addTasks";
@@ -53,9 +53,7 @@ unsorted.addEventListener("click", function (event) {
 allTasks.addEventListener("click", function () {
   selector();
   addTasks(unsorted, "no");
-  Object.keys(tasks).forEach((key) => {
-    displayUpdate(tasks, key, taskDisplay);
-  });
+  displayUpdateAll(tasks, taskDisplay);
 });
 
 //make task form visible

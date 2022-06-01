@@ -10,6 +10,14 @@ let displayUpdate = (list, project, container) => {
   });
 };
 
-let displayUpdateAll;
+let displayUpdateAll = (list, container) => {
+  let all = [];
+  Object.keys(list).forEach((key) => {
+    all = all.concat(list[key]);
+  });
+  all.forEach((task, id) => {
+    createTask(container, task, id);
+  });
+};
 
-export { displayUpdate };
+export { displayUpdate, displayUpdateAll };
