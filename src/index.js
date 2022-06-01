@@ -6,6 +6,7 @@ import { createProject } from "./createProject";
 import { displayUpdate } from "./displayUpdate";
 import { createTask } from "./createTask";
 import { visibility, blurTasks, selector } from "./styleHelper";
+import { addTasks } from "./addTasks";
 initialize(document.body);
 
 let tasks = { unsorted: [] };
@@ -28,41 +29,29 @@ projectForm.addEventListener("submit", function (e) {
     tasks[projectForm.projectname.value] = []; //create a project key
     createProject(sidebarContainer, projectForm.projectname.value, tasks, taskDisplay);
   }
-  projectForm.projectname.value = "";
+  this.reset();
   visibility(e.target);
 });
 
 taskForm.addEventListener("submit", function (e) {
-  let active = document.querySelector(".active"); //get currently active project
   e.preventDefault();
+  let active = document.querySelector(".active"); //get currently active project
   let task = new toDo(taskForm); //create a new task from form
-  tasks[active.id].push(task); // get current project key from id, add to list
+  tasks[active.id].push(task); // get current project key from id, add task to list
   displayUpdate(tasks, active.id, taskDisplay);
   visibility(e.target);
-  console.log(tasks);
+  this.reset();
 });
 
 //load default project tasks
-unsorted.addEventListener("click", function () {
-  let active = document.querySelector(".active");
-  active.classList.remove("active");
-  this.classList.add("active");
-  let j = document.querySelectorAll(".task");
-  j.forEach((task) => {
-    task.remove();
-  });
+unsorted.addEventListener("click", function (event) {
+  addTasks(event.target);
   selector();
   this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
   displayUpdate(tasks, "unsorted", taskDisplay);
 });
 allTasks.addEventListener("click", function () {
-  let active = document.querySelector(".active");
-  active.classList.remove("active");
-  unsorted.classList.add("active");
-  let j = document.querySelectorAll(".task");
-  j.forEach((task) => {
-    task.remove();
-  });
+  addTasks(unsorted);
   selector();
   this.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
   Object.keys(tasks).forEach((key) => {
