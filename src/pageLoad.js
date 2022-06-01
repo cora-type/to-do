@@ -80,7 +80,7 @@ let taskForm = (container) => {
 
   let form = document.createElement("form");
   form.id = "t-form";
-  form.style.visibility = "hidden";
+  form.setAttribute("style", "display:none");
 
   let form__group = document.createElement("div");
   form__group.classList.add("form__group");
@@ -162,10 +162,10 @@ let taskForm = (container) => {
 let projectForm = (container) => {
   let projectFormModal = document.createElement("div");
   projectFormModal.classList.add("p-form-modal");
+  projectFormModal.setAttribute("style", "display: none;");
 
   let form = document.createElement("form");
   form.id = "p-form";
-  form.setAttribute("style", "visibility: hidden;");
 
   let label = document.createElement("label");
   label.setAttribute("for", "projectname");

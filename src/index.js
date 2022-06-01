@@ -12,6 +12,7 @@ initialize(document.body);
 let tasks = { unsorted: [] };
 
 let createProjectBtn = document.querySelector(".create-project-btn");
+let projectFormModal = document.querySelector(".p-form-modal");
 let projectForm = document.getElementById("p-form");
 let createTaskBtn = document.querySelector(".create-task-btn");
 let taskForm = document.getElementById("t-form");
@@ -62,6 +63,6 @@ createTaskBtn.addEventListener("click", function () {
 });
 //make project form visible
 createProjectBtn.addEventListener("click", function () {
-  visibility(projectForm);
+  visibility(projectFormModal);
   blurTasks(taskDisplay);
 });

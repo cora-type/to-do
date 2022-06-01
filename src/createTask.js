@@ -1,9 +1,9 @@
 import edit from "./edit.svg";
 
-let createTask = (container, object, id) => {
+let createTask = (container, object, id, list, project) => {
   let task = document.createElement("div");
   task.classList.add("task");
-
+  task.id = id;
   container.appendChild(task);
 
   let checkbox = document.createElement("input");
