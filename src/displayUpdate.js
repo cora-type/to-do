@@ -10,4 +10,6 @@ let displayUpdate = (list, project, container) => {
   });
 };
 
+let displayUpdateAll;
+
 export { displayUpdate };

@@ -23,11 +23,12 @@ let allTasks = document.getElementById("all");
 
 //form handlers
 projectForm.addEventListener("submit", function (e) {
+  let name = this.projectname.value;
   e.preventDefault();
   blurTasks(taskDisplay);
-  if (projectForm.projectname.value) {
-    tasks[projectForm.projectname.value] = []; //create a project key
-    createProject(sidebarContainer, projectForm.projectname.value, tasks, taskDisplay);
+  if (name) {
+    tasks[name] = []; //create a project key
+    createProject(sidebarContainer, name, tasks, taskDisplay);
   }
   this.reset();
   visibility(e.target);
@@ -46,12 +47,12 @@ taskForm.addEventListener("submit", function (e) {
 //load default project tasks
 unsorted.addEventListener("click", function (event) {
   selector();
-  addTasks(event.target);
+  addTasks(event.target, "yes");
   displayUpdate(tasks, "unsorted", taskDisplay);
 });
 allTasks.addEventListener("click", function () {
   selector();
-  addTasks(unsorted);
+  addTasks(unsorted, "no");
   Object.keys(tasks).forEach((key) => {
     displayUpdate(tasks, key, taskDisplay);
   });
