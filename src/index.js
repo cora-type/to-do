@@ -39,7 +39,6 @@ taskForm.addEventListener("submit", function (e) {
   tasks[active.id].push(task); // get current project key from id, add to list
   displayUpdate(tasks, active.id, taskDisplay);
   visibility(e.target);
-
   console.log(tasks);
 });
 
