@@ -31,7 +31,7 @@ projectForm.addEventListener("submit", function (e) {
     createProject(sidebarContainer, name, tasks, taskDisplay);
   }
   this.reset();
-  visibility(e.target);
+  visibility(projectFormModal);
 });
 
 taskForm.addEventListener("submit", function (e) {

@@ -11,6 +11,7 @@ let createTask = (container, object, id, project) => {
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("value", id);
 
+  //remove on check
   checkbox.addEventListener("change", function () {
     setTimeout(() => {
       if (this.checked) {
