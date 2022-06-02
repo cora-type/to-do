@@ -1,7 +1,7 @@
 import edit from "./edit.svg";
 import tasks from "./index";
 
-let createTask = (container, object, id, project) => {
+let createTask = (container, task, id, project) => {
   let task = document.createElement("div");
   task.classList.add("task");
   container.appendChild(task);
@@ -24,7 +24,7 @@ let createTask = (container, object, id, project) => {
 
   let label = document.createElement("label");
   label.setAttribute("for", id);
-  label.innerText = object.title;
+  label.innerText = task.title;
   task.appendChild(label);
 
   let taskInfo = document.createElement("div");
