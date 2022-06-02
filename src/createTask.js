@@ -1,9 +1,9 @@
 import edit from "./edit.svg";
+import tasks from "./index";
 
-let createTask = (container, object, id, list, project) => {
+let createTask = (container, object, id, project) => {
   let task = document.createElement("div");
   task.classList.add("task");
-  task.id = id;
   container.appendChild(task);
 
   let checkbox = document.createElement("input");
@@ -11,6 +11,14 @@ let createTask = (container, object, id, list, project) => {
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("value", id);
 
+  checkbox.addEventListener("change", function () {
+    setTimeout(() => {
+      if (this.checked) {
+        this.parentElement.remove();
+        tasks[project].splice(this.id, 1);
+      }
+    }, 700);
+  });
   task.appendChild(checkbox);
 
   let label = document.createElement("label");

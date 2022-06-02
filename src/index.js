@@ -4,12 +4,9 @@ import { initialize } from "./pageLoad";
 import { toDo } from "./toDo";
 import { createProject } from "./createProject";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
-import { createTask } from "./createTask";
 import { visibility, blurTasks, selector } from "./styleHelper";
 import { addTasks } from "./addTasks";
 initialize(document.body);
-
-let tasks = { unsorted: [] };
 
 let createProjectBtn = document.querySelector(".create-project-btn");
 let projectFormModal = document.querySelector(".p-form-modal");
@@ -21,6 +18,8 @@ let taskDisplay = document.querySelector(".task-display");
 let sidebarContainer = document.querySelector(".sidebar");
 let unsorted = document.getElementById("unsorted");
 let allTasks = document.getElementById("all");
+
+let tasks = { unsorted: [] };
 
 //form handlers
 projectForm.addEventListener("submit", function (e) {
@@ -66,3 +65,5 @@ createProjectBtn.addEventListener("click", function () {
   visibility(projectFormModal);
   blurTasks(taskDisplay);
 });
+
+export default tasks;
