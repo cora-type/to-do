@@ -1,6 +1,5 @@
 import edit from "./edit.svg";
 import { tasks } from "./index";
-import { visibility } from "./styleHelper";
 
 let createTask = (container, object, id) => {
   let index = id; //stores the index at which this specific "toDo" exists in the project

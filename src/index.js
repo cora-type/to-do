@@ -6,13 +6,15 @@ import { createProject } from "./createProject";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
 import { visibility, blurTasks, selector } from "./styleHelper";
 import { addTasks } from "./addTasks";
+import { newTask } from "./newTask";
+
 initialize(document.body);
 
 const createProjectBtn = document.querySelector(".create-project-btn");
 const projectFormModal = document.querySelector(".p-form-modal");
 const projectForm = document.getElementById("p-form");
 const createTaskBtn = document.querySelector(".create-task-btn");
-let taskForm = document.getElementById("t-form");
+const taskForm = document.getElementById("t-form");
 const taskDisplay = document.querySelector(".task-display");
 
 const sidebarContainer = document.querySelector(".sidebar");
@@ -22,36 +24,12 @@ const allTasks = document.querySelector(".all");
 let tasks = { unsorted: [] };
 
 //form handlers
-projectForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  let name = this.projectname.value;
-  blurTasks(taskDisplay);
-  if (name) {
-    tasks[name] = []; //create a project key
-    createProject(sidebarContainer, name, tasks, taskDisplay);
-  }
-  this.reset();
-  visibility(projectFormModal, false);
-});
-
-taskForm.addEventListener("submit", function (e) {
-  e.preventDefault();
-  const active = document.querySelector(".active"); //get currently active project
-  let task = new toDo(taskForm); //create a new task from form
-  task.project = active.id;
-  tasks[active.id].push(task); // get current project key from id, add task to list
-  if (active.classList.contains("all")) {
-    displayUpdateAll(tasks, taskDisplay);
-  } else {
-    displayUpdate(tasks, active.id, taskDisplay);
-  }
-  visibility(e.target, true);
-});
+projectForm.addEventListener("submit", newTask);
 
 //load default project tasks
 unsorted.addEventListener("click", function (event) {
   selector(); //remove currently active link border
-  addTasks(event.target);
+  addTasks(event.target); //removes tasks and styles clicked project
   displayUpdate(tasks, event.target.id, taskDisplay);
 });
 allTasks.addEventListener("click", function (event) {
@@ -68,6 +46,7 @@ createTaskBtn.addEventListener("click", function () {
 createProjectBtn.addEventListener("click", function () {
   visibility(projectFormModal, false);
   blurTasks(taskDisplay);
+  console.log(tasks);
 });
 
 //used to bring up task-form as an task editor

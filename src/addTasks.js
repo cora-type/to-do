@@ -2,7 +2,6 @@
 
 let addTasks = (x) => {
   let border = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
-  let allTasks = document.getElementById("all");
   let active = document.querySelector(".active");
   active.classList.remove("active");
   x.classList.add("active");
