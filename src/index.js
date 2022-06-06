@@ -2,11 +2,11 @@
 import "./styles.css";
 import { initialize } from "./pageLoad";
 import { toDo } from "./toDo";
-import { createProject } from "./createProject";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
 import { visibility, blurTasks, selector } from "./styleHelper";
 import { addTasks } from "./addTasks";
 import { newTask } from "./newTask";
+import { newProject } from "./newProject";
 
 initialize(document.body);
 
@@ -17,14 +17,10 @@ const createTaskBtn = document.querySelector(".create-task-btn");
 const taskForm = document.getElementById("t-form");
 const taskDisplay = document.querySelector(".task-display");
 
-const sidebarContainer = document.querySelector(".sidebar");
 const unsorted = document.querySelector(".unsorted");
 const allTasks = document.querySelector(".all");
 
 let tasks = { unsorted: [] };
-
-//form handlers
-projectForm.addEventListener("submit", newTask);
 
 //load default project tasks
 unsorted.addEventListener("click", function (event) {
@@ -41,22 +37,14 @@ allTasks.addEventListener("click", function (event) {
 //make task form visible
 createTaskBtn.addEventListener("click", function () {
   visibility(taskForm, true);
+  taskForm.addEventListener("submit", newTask);
 });
 //make project form visible
 createProjectBtn.addEventListener("click", function () {
+  projectForm.addEventListener("submit", newProject);
   visibility(projectFormModal, false);
   blurTasks(taskDisplay);
   console.log(tasks);
 });
 
-//used to bring up task-form as an task editor
-let editor = (object) => {
-  visibility(taskForm);
-  taskForm.title.value = object.title;
-  taskForm.description.value = object.description;
-  taskForm.notes.value = object.notes;
-  taskForm.priority.value = object.priority;
-  taskForm.date.value = object.date;
-};
-
-export { editor, tasks };
+export { tasks };

@@ -3,8 +3,8 @@ import { tasks } from "./index";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
 import { visibility } from "./styleHelper";
 
-let newTask = (event) => {
-  event.preventDefault();
+let newTask = (e) => {
+  e.preventDefault();
   let taskDisplay = document.querySelector(".task-display");
   let active = document.querySelector(".active");
   let task = new toDo(e.target); //create a new task from form
@@ -15,7 +15,8 @@ let newTask = (event) => {
   } else {
     displayUpdate(tasks, active.id, taskDisplay);
   }
-  visibility(event.target, true); //target the taskForm, since its a form reset
+  visibility(e.target, true); //target the taskForm, since its a form reset
+  e.target.removeEventListener("submit", newTask);
 };
 
 export { newTask };
