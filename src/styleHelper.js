@@ -1,8 +1,10 @@
 //Makes input visible/invisible
-let visibility = (modal) => {
+let visibility = (modal, form) => {
   modal.style.display == "none"
     ? (modal.style.display = "block")
     : (modal.style.display = "none");
+
+  form == true ? modal.reset() : null;
 };
 //Blur's task container
 let blurTasks = (taskList) => {

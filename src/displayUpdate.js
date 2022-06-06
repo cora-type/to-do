@@ -2,21 +2,24 @@ import { createTask } from "./createTask";
 
 //Updates task container to show respective project/tasks from list of tasks.
 let displayUpdate = (list, project, container) => {
-  list[project].forEach((task, id) => {
-    var myEle = document.getElementById(id); //if the task already exists, ignore (prevents duplication)
+  list[project].forEach((result, id) => {
+    //if the task already exists, ignore (prevents duplication)
+    var myEle = document.getElementById(result.project + id);
     if (!myEle) {
-      createTask(container, task, id, project);
+      createTask(container, result, id);
     }
   });
 };
 
+//used to update taskDisplay with ALL tasks
 let displayUpdateAll = (list, container) => {
-  let all = [];
   Object.keys(list).forEach((key) => {
-    all = all.concat(list[key]);
-  });
-  all.forEach((task, id) => {
-    createTask(container, task, id);
+    list[key].forEach((result, id) => {
+      var myEle = document.getElementById(result.project + id);
+      if (!myEle) {
+        createTask(container, result, id);
+      }
+    });
   });
 };
 

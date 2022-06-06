@@ -1,6 +1,3 @@
-import edit from "./edit.svg";
-import { createTask } from "./createTask";
-
 let initialize = (container) => {
   headers(container);
   sidebars(container);
@@ -19,7 +16,7 @@ let headers = (container) => {
   headingStatus.classList.add("heading", "heading-status");
   headingTitle.classList.add("heading", "heading-title");
 
-  headingStatus.innerText = "nothing ";
+  headingStatus.innerText = "------- ";
   headingTitle.innerText = "to do";
   // append children to parent, and append parent to container
   heading.append(headingStatus, headingTitle);
@@ -33,15 +30,16 @@ let sidebars = (container) => {
   let sidebarUnsorted = document.createElement("button");
 
   sidebar.classList.add("sidebar");
-  sidebarAll.classList.add("link", "link--ersa");
-  sidebarUnsorted.classList.add("link", "link--ersa", "active");
+  sidebarAll.classList.add("link", "link--ersa", "all");
+  sidebarUnsorted.classList.add("link", "link--ersa", "unsorted", "active");
 
-  sidebarAll.id = "all";
+  sidebarAll.id = "unsorted";
   sidebarUnsorted.id = "unsorted";
 
   sidebarAll.innerText = "all tasks";
   sidebarUnsorted.innerText = "unsorted";
-  sidebarUnsorted.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
+  sidebarUnsorted.style.cssText =
+    "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
 
   sidebar.append(sidebarAll, sidebarUnsorted);
   container.appendChild(sidebar);
