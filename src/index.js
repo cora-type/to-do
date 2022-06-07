@@ -1,7 +1,6 @@
 // document.addEventListener("DOMContentLoaded", function () {}
 import "./styles.css";
 import { initialize } from "./pageLoad";
-import { toDo } from "./toDo";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
 import { visibility, blurTasks, selector } from "./styleHelper";
 import { addTasks } from "./addTasks";

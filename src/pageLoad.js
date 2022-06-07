@@ -138,6 +138,7 @@ let taskForm = (container) => {
     type: "date",
     name: "date",
     id: "date",
+    required: " ",
   });
 
   let btn = document.createElement("button");

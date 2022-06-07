@@ -2,6 +2,7 @@ import edit from "./edit.svg";
 import { tasks } from "./index";
 import { visibility } from "./styleHelper";
 import { displayUpdate } from "./displayUpdate";
+import { format, formatDistanceToNow, parseISO } from "date-fns";
 
 let createTask = (container, object, id) => {
   let index = id; //stores the index at which this specific "toDo" exists in the project
@@ -61,6 +62,7 @@ let createTask = (container, object, id) => {
   let editor = () => {
     let taskForm = document.getElementById("t-form");
     visibility(taskForm, true);
+
     taskForm.title.value = object.title;
     taskForm.description.value = object.description;
     taskForm.notes.value = object.notes;
@@ -73,7 +75,6 @@ let createTask = (container, object, id) => {
   let something = (e) => {
     e.preventDefault();
     const taskForm = document.getElementById("t-form");
-    const taskDisplay = document.querySelector(".task-display");
 
     object.changeTitle = taskForm.title.value;
     object.changeDescription = taskForm.description.value;
@@ -84,14 +85,17 @@ let createTask = (container, object, id) => {
     displayUpdate(tasks, object.project, container);
     visibility(e.target, true);
     e.target.removeEventListener("submit", something);
-    console.log(tasks);
   };
 
   editButton.addEventListener("click", editor);
 
   let taskTime = document.createElement("div");
   taskTime.classList.add("task-time");
-  taskTime.innerText = "2 days";
+
+  let taskTimeParsed = parseISO(object.date);
+  let taskTimeUntil = formatDistanceToNow(taskTimeParsed, { addSuffix: true });
+
+  taskTime.innerText = taskTimeUntil;
   taskInfo.appendChild(taskTime);
 };
 
