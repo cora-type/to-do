@@ -15,11 +15,11 @@ let test = () => {
         if (count == 1) {
           header.innerText = "nothing :)";
         } else if (count > 1 && count <= 5) {
-          header.innerText = "a bit :|";
+          header.innerText = "a bit :)";
         } else if (count > 5 && count <= 10) {
-          header.innerText = "lots :(";
+          header.innerText = "lots :|";
         } else if (count > 10) {
-          header.innerText = "too much o.o";
+          header.innerText = "too much :(";
         }
         // if (targetNode.children.length > 1) {
         //   header.innerText = "a little bit ";

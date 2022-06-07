@@ -97,10 +97,10 @@ textarea {
   text-overflow: ellipsis;
 }
 
-.edit-svg {
-  margin-bottom: -10px;
+svg {
+  fill: red;
+  color: red;
 }
-
 /* submit project btn styling */
 
 /* From uiverse.io by @kiru2741 */
