@@ -84,7 +84,7 @@ let createTask = (container, object, id) => {
 
     displayUpdate(tasks, object.project, container);
     visibility(e.target, true);
-    e.target.removeEventListener("submit", something);
+    e.target.removeEventListener("submit", editorHelper);
   };
 
   editButton.addEventListener("click", editor);
