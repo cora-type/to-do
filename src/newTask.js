@@ -7,15 +7,17 @@ let newTask = (e) => {
   e.preventDefault();
   let taskDisplay = document.querySelector(".task-display");
   let active = document.querySelector(".active");
+
   let task = new toDo(e.target); //create a new task from form
   task.project = active.id;
-  tasks[active.id].push(task); // get current project key from id, add task to list
+  tasks[active.id].push(task); // get current project key from div id, add task to list
+
   if (active.classList.contains("all")) {
     displayUpdateAll(tasks, taskDisplay);
   } else {
     displayUpdate(tasks, active.id, taskDisplay);
   }
-  visibility(e.target, true); //target the taskForm, since its a form reset
+  visibility(e.target, true); //target the taskForm, since its a form reset = true
   e.target.removeEventListener("submit", newTask);
 };
 

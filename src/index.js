@@ -6,6 +6,7 @@ import { visibility, blurTasks, selector } from "./styleHelper";
 import { addTasks } from "./addTasks";
 import { newTask } from "./newTask";
 import { newProject } from "./newProject";
+import { test } from "./mutationObserver";
 
 initialize(document.body);
 
@@ -43,7 +44,8 @@ createProjectBtn.addEventListener("click", function () {
   projectForm.addEventListener("submit", newProject);
   visibility(projectFormModal, false);
   blurTasks(taskDisplay);
-  console.log(tasks);
 });
+
+test();
 
 export { tasks };

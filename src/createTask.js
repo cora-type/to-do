@@ -69,10 +69,10 @@ let createTask = (container, object, id) => {
     taskForm.priority.value = object.priority;
     taskForm.date.value = object.date;
 
-    taskForm.addEventListener("submit", something);
+    taskForm.addEventListener("submit", editorHelper);
   };
 
-  let something = (e) => {
+  let editorHelper = (e) => {
     e.preventDefault();
     const taskForm = document.getElementById("t-form");
 

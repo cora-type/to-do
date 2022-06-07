@@ -16,7 +16,7 @@ let headers = (container) => {
   headingStatus.classList.add("heading", "heading-status");
   headingTitle.classList.add("heading", "heading-title");
 
-  headingStatus.innerText = "------- ";
+  headingStatus.innerText = "nothing :)";
   headingTitle.innerText = "to do";
   // append children to parent, and append parent to container
   heading.append(headingStatus, headingTitle);
