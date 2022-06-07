@@ -36,8 +36,8 @@ allTasks.addEventListener("click", function (event) {
 
 //make task form visible
 createTaskBtn.addEventListener("click", function () {
-  visibility(taskForm, true);
   taskForm.addEventListener("submit", newTask);
+  visibility(taskForm, true);
 });
 //make project form visible
 createProjectBtn.addEventListener("click", function () {

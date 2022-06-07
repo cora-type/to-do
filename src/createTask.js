@@ -1,5 +1,7 @@
 import edit from "./edit.svg";
 import { tasks } from "./index";
+import { visibility } from "./styleHelper";
+import { displayUpdate } from "./displayUpdate";
 
 let createTask = (container, object, id) => {
   let index = id; //stores the index at which this specific "toDo" exists in the project
@@ -56,30 +58,36 @@ let createTask = (container, object, id) => {
   editSVG.classList.add("edit-svg");
   editButton.appendChild(editSVG);
 
-  // let editor = () => {
-  //   let taskForm = document.getElementById("t-form");
-  //   visibility(taskForm, true);
-  //   taskForm.title.value = object.title;
-  //   taskForm.description.value = object.description;
-  //   taskForm.notes.value = object.notes;
-  //   taskForm.priority.value = object.priority;
-  //   taskForm.date.value = object.date;
-  //   taskForm.addEventListener("submit", something);
-  // };
+  let editor = () => {
+    let taskForm = document.getElementById("t-form");
+    visibility(taskForm, true);
+    taskForm.title.value = object.title;
+    taskForm.description.value = object.description;
+    taskForm.notes.value = object.notes;
+    taskForm.priority.value = object.priority;
+    taskForm.date.value = object.date;
 
-  // let something = (e) => {
-  //   let taskForm = document.getElementById("t-form");
-  //   e.preventDefault();
-  //   object.changeTitle = taskForm.title.value;
-  //   object.changeDescription = taskForm.description.value;
-  //   object.changeNotes = taskForm.notes.value;
-  //   object.changePriority = taskForm.priority.value;
-  //   object.changeDate = taskForm.date.value;
-  //   e.target.removeEventListener("submit", something);
-  //   console.log("editor");
-  // };
+    taskForm.addEventListener("submit", something);
+  };
 
-  // editButton.addEventListener("click", editor);
+  let something = (e) => {
+    e.preventDefault();
+    const taskForm = document.getElementById("t-form");
+    const taskDisplay = document.querySelector(".task-display");
+
+    object.changeTitle = taskForm.title.value;
+    object.changeDescription = taskForm.description.value;
+    object.changeNotes = taskForm.notes.value;
+    object.changePriority = taskForm.priority.value;
+    object.changeDate = taskForm.date.value;
+
+    displayUpdate(tasks, object.project, container);
+    visibility(e.target, true);
+    e.target.removeEventListener("submit", something);
+    console.log(tasks);
+  };
+
+  editButton.addEventListener("click", editor);
 
   let taskTime = document.createElement("div");
   taskTime.classList.add("task-time");
