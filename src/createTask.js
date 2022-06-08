@@ -7,7 +7,7 @@ import { format, formatDistanceToNow, parseISO } from "date-fns";
 let createTask = (container, object, id) => {
   let index = id; //stores the index at which this specific "toDo" exists in the project
   let task = document.createElement("div");
-  task.classList.add("task");
+  task.classList.add("task", "animate__animated", "animate__slideInRight");
   container.appendChild(task);
 
   let labelContainer = document.createElement("div");
@@ -24,8 +24,9 @@ let createTask = (container, object, id) => {
   checkbox.addEventListener("change", function () {
     setTimeout(() => {
       if (this.checked) {
+        let r = tasks[object.project].indexOf(object);
         task.remove();
-        tasks[object.project].splice(index, 1);
+        tasks[object.project].splice(r, 1);
       }
     }, 700);
   });

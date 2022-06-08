@@ -1,4 +1,4 @@
-let test = () => {
+let displayMutationObserver = () => {
   const targetNode = document.querySelector(".task-display");
   const header = document.querySelector(".heading-status");
 
@@ -21,13 +21,6 @@ let test = () => {
         } else if (count > 10) {
           header.innerText = "too much :(";
         }
-        // if (targetNode.children.length > 1) {
-        //   header.innerText = "a little bit ";
-        // } else if (targetNode.children.length > 5) {
-        //   header.innerText = "a lot  ";
-        // } else if (targetNode.children.length > 10) {
-        //   header.innerText = "oh boy";
-        // }
         console.log("A child node has been added or removed.");
       }
     }
@@ -40,4 +33,4 @@ let test = () => {
   observer.observe(targetNode, config);
 };
 
-export { test };
+export { displayMutationObserver };

@@ -1,3 +1,5 @@
+import "animate.css";
+
 let initialize = (container) => {
   headers(container);
   sidebars(container);
@@ -38,8 +40,7 @@ let sidebars = (container) => {
 
   sidebarAll.innerText = "all tasks";
   sidebarUnsorted.innerText = "unsorted";
-  sidebarUnsorted.style.cssText =
-    "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
+  sidebarUnsorted.style.cssText = "box-shadow: 0 0 0 1px lightgray;font-weight:bold;";
 
   sidebar.append(sidebarAll, sidebarUnsorted);
   container.appendChild(sidebar);
@@ -61,7 +62,7 @@ let tasks = (container) => {
   let addBtn = document.createElement("button");
 
   tasklist.classList.add("task-display");
-  btn.classList.add("button");
+  btn.classList.add("button", "animate__animated", "animate__fadeInRight");
   addBtn.classList.add("create-task-btn");
 
   addBtn.innerText = "+";
@@ -79,6 +80,7 @@ let taskForm = (container) => {
   let form = document.createElement("form");
   form.id = "t-form";
   form.setAttribute("style", "display:none");
+  form.setAttribute("closed", "");
 
   let form__group = document.createElement("div");
   form__group.classList.add("form__group");
@@ -162,6 +164,7 @@ let projectForm = (container) => {
   let projectFormModal = document.createElement("div");
   projectFormModal.classList.add("p-form-modal");
   projectFormModal.setAttribute("style", "display: none;");
+  projectFormModal.setAttribute("closed", "");
 
   let form = document.createElement("form");
   form.id = "p-form";

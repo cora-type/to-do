@@ -2,7 +2,10 @@
 let visibility = (modal, form) => {
   modal.style.display == "none"
     ? (modal.style.display = "block")
-    : (modal.style.display = "none");
+    : setTimeout(() => {
+        // give time for exit animation to complete
+        modal.style.display = "none";
+      }, "900");
 
   form == true ? modal.reset() : null;
 };
@@ -20,4 +23,13 @@ let selector = () => {
   });
 };
 
-export { visibility, blurTasks, selector };
+let animate = (modal) => {
+  if (modal.hasAttribute("closed")) {
+    modal.removeAttribute("closed");
+    modal.setAttribute("open", "");
+  } else {
+    modal.removeAttribute("open");
+    modal.setAttribute("closed", "");
+  }
+};
+export { visibility, blurTasks, selector, animate };

@@ -97,9 +97,24 @@ textarea {
   text-overflow: ellipsis;
 }
 
-svg {
-  fill: red;
-  color: red;
+#t-form[open] {
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+#t-form[closed] {
+  animation: fadeOut;
+  animation-duration: 1s;
+}
+
+.p-form-modal[open] {
+  animation: fadeIn;
+  animation-duration: 1s;
+}
+
+.p-form-modal[closed] {
+  animation: fadeOut;
+  animation-duration: 1s;
 }
 /* submit project btn styling */
 
@@ -242,8 +257,8 @@ svg {
   box-sizing: border-box;
   color: rgba(0, 0, 0, 0.85);
   cursor: pointer;
-  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica,
-    Arial, sans-serif;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
   font-size: 16px;
   font-weight: 600;
   padding: calc(0.575rem - 1px) calc(1rem - 1px);
@@ -551,9 +566,8 @@ svg {
   }
   100% {
     opacity: 0;
-    box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0,
-      14px 8px 0 0px #4f29f0, 0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0,
-      -14px -8px 0 0px #4f29f0;
+    box-shadow: 0 -15px 0 0px #4f29f0, 14px -8px 0 0px #4f29f0, 14px 8px 0 0px #4f29f0,
+      0 15px 0 0px #4f29f0, -14px 8px 0 0px #4f29f0, -14px -8px 0 0px #4f29f0;
   }
 }
 

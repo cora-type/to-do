@@ -2,11 +2,11 @@
 import "./styles.css";
 import { initialize } from "./pageLoad";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
-import { visibility, blurTasks, selector } from "./styleHelper";
+import { visibility, blurTasks, selector, animate } from "./styleHelper";
 import { addTasks } from "./addTasks";
 import { newTask } from "./newTask";
 import { newProject } from "./newProject";
-import { test } from "./mutationObserver";
+import { displayMutationObserver } from "./mutationObserver";
 
 initialize(document.body);
 
@@ -38,14 +38,16 @@ allTasks.addEventListener("click", function (event) {
 createTaskBtn.addEventListener("click", function () {
   taskForm.addEventListener("submit", newTask);
   visibility(taskForm, true);
+  animate(taskForm);
 });
 //make project form visible
 createProjectBtn.addEventListener("click", function () {
   projectForm.addEventListener("submit", newProject);
   visibility(projectFormModal, false);
   blurTasks(taskDisplay);
+  animate(projectFormModal);
 });
 
-test();
+displayMutationObserver();
 
 export { tasks };
