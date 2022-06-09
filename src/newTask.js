@@ -1,7 +1,7 @@
 import { toDo } from "./toDo";
 import { tasks } from "./index";
 import { displayUpdate, displayUpdateAll } from "./displayUpdate";
-import { visibility } from "./styleHelper";
+import { visibility, animate } from "./styleHelper";
 
 let newTask = (e) => {
   e.preventDefault();
@@ -18,6 +18,7 @@ let newTask = (e) => {
     displayUpdate(tasks, active.id, taskDisplay);
   }
   visibility(e.target, true); //target the taskForm, since its a form reset = true
+  animate(e.target);
   e.target.removeEventListener("submit", newTask);
 };
 

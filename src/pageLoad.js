@@ -18,7 +18,7 @@ let headers = (container) => {
   headingStatus.classList.add("heading", "heading-status");
   headingTitle.classList.add("heading", "heading-title");
 
-  headingStatus.innerText = "nothing :)";
+  headingStatus.innerText = "nothing";
   headingTitle.innerText = "to do";
   // append children to parent, and append parent to container
   heading.append(headingStatus, headingTitle);
@@ -63,6 +63,7 @@ let tasks = (container) => {
 
   tasklist.classList.add("task-display");
   btn.classList.add("button", "animate__animated", "animate__fadeInRight");
+  btn.style.cssText = "animation-duration: .5s";
   addBtn.classList.add("create-task-btn");
 
   addBtn.innerText = "+";

@@ -1,13 +1,15 @@
 import edit from "./edit.svg";
 import { tasks } from "./index";
-import { visibility } from "./styleHelper";
+import { visibility, animate } from "./styleHelper";
 import { displayUpdate } from "./displayUpdate";
 import { format, formatDistanceToNow, parseISO } from "date-fns";
 
 let createTask = (container, object, id) => {
-  let index = id; //stores the index at which this specific "toDo" exists in the project
   let task = document.createElement("div");
-  task.classList.add("task", "animate__animated", "animate__slideInRight");
+  task.classList.add("task");
+  // task.classList.add("animate__animated", "animate__slideInRight");
+  // task.style.cssText = "animation-duration: .5s";
+
   container.appendChild(task);
 
   let labelContainer = document.createElement("div");
@@ -24,9 +26,9 @@ let createTask = (container, object, id) => {
   checkbox.addEventListener("change", function () {
     setTimeout(() => {
       if (this.checked) {
-        let r = tasks[object.project].indexOf(object);
         task.remove();
-        tasks[object.project].splice(r, 1);
+        let index = tasks[object.project].indexOf(object);
+        tasks[object.project].splice(index, 1);
       }
     }, 700);
   });
@@ -63,6 +65,7 @@ let createTask = (container, object, id) => {
   let editor = () => {
     let taskForm = document.getElementById("t-form");
     visibility(taskForm, true);
+    animate(taskForm);
 
     taskForm.title.value = object.title;
     taskForm.description.value = object.description;
@@ -85,6 +88,7 @@ let createTask = (container, object, id) => {
 
     displayUpdate(tasks, object.project, container);
     visibility(e.target, true);
+    animate(e.target);
     e.target.removeEventListener("submit", editorHelper);
   };
 

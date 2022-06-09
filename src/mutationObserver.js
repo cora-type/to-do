@@ -13,13 +13,13 @@ let displayMutationObserver = () => {
         let count = targetNode.children.length;
 
         if (count == 1) {
-          header.innerText = "nothing :)";
+          header.innerText = "nothing";
         } else if (count > 1 && count <= 5) {
-          header.innerText = "a bit :)";
+          header.innerText = "a bit";
         } else if (count > 5 && count <= 10) {
-          header.innerText = "lots :|";
+          header.innerText = "lots";
         } else if (count > 10) {
-          header.innerText = "too much :(";
+          header.innerText = "too much";
         }
         console.log("A child node has been added or removed.");
       }

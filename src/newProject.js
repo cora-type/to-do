@@ -1,5 +1,5 @@
 import { tasks } from "./index";
-import { visibility, blurTasks } from "./styleHelper";
+import { visibility, blurTasks, animate } from "./styleHelper";
 import { createProject } from "./createProject";
 
 let newProject = (e) => {
@@ -16,6 +16,7 @@ let newProject = (e) => {
   }
   e.target.reset();
   visibility(projectFormModal, false);
+  animate(projectFormModal);
   e.target.removeEventListener("submit", newProject);
 };
 

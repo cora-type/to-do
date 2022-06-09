@@ -5,7 +5,7 @@ let visibility = (modal, form) => {
     : setTimeout(() => {
         // give time for exit animation to complete
         modal.style.display = "none";
-      }, "900");
+      }, "400");
 
   form == true ? modal.reset() : null;
 };
