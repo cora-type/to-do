@@ -1,2 +1,5 @@
 # to-do
-to-do web app
+a really barebones to-do web app
+
+
+https://jacarina.github.io/to-do/
