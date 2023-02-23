@@ -2,4 +2,4 @@
 a really barebones to-do web app
 
 
-https://jacarina.github.io/to-do/
+[click here](https://cora-type.github.io/to-do/)
